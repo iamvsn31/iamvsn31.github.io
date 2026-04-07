@@ -24,7 +24,10 @@
       "Bash(sed -i '' 's|src=\"capabilities/Stakeholder Communication.png\"|src=\"capabilities/Stakeholder%20Communication.png\"|g' /Users/vsn/varun-portfolio/index.html)",
       "Bash(sed -i '' 's|src=\"capabilities/Data Driven Decisions.png\"|src=\"capabilities/Data%20Driven%20Decisions.png\"|g' /Users/vsn/varun-portfolio/index.html)",
       "Bash(cp ~/Documents/Photos/\"FT Logo.png\" /Users/vsn/varun-portfolio/logos/\"FT Logo.png\")",
-      "Bash(cp ~/Documents/Photos/\"SquadBase Logo.png\" /Users/vsn/varun-portfolio/logos/\"SquadBase Logo.png\")"
+      "Bash(cp ~/Documents/Photos/\"SquadBase Logo.png\" /Users/vsn/varun-portfolio/logos/\"SquadBase Logo.png\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
