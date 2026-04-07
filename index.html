@@ -1237,6 +1237,10 @@
       .stat-number { font-size: 32px; }
       .scroll-indicator { display: none; }
 
+      .hero-role { white-space: normal; font-size: 11px; }
+      .hero-ctas { display: flex; flex-direction: column; width: 100%; gap: 0.75rem; }
+      .hero-ctas .btn { width: 100%; max-width: 100%; box-sizing: border-box; text-align: center; justify-content: center; }
+
       .gallery-header { flex-direction: column; align-items: flex-start; gap: 20px; }
       .gallery-track-wrap { width: 100%; overflow-x: hidden; }
       .gallery-card { flex: 0 0 calc(100vw - 2.5rem); height: 420px; min-height: 420px; }
@@ -1263,8 +1267,7 @@
     }
 
     @media (max-width: 480px) {
-      .hero-ctas { flex-direction: column; }
-      .btn { text-align: center; }
+      .hero-name { font-size: clamp(48px, 14vw, 72px); }
     }
   </style>
 </head>
