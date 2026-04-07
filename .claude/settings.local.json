@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open:*)",
+      "Bash(clear:*)",
+      "Bash(cp ~/Downloads/AI_for_Product_Owners.png /Users/vsn/varun-portfolio/)",
+      "Bash(cp ~/Downloads/PSM_II.png /Users/vsn/varun-portfolio/)",
+      "Bash(cp ~/Downloads/PM_an_intro.png /Users/vsn/varun-portfolio/)",
+      "Bash(cp ~/Downloads/BU_MIM.jpeg /Users/vsn/varun-portfolio/)",
+      "Bash(cp ~/Downloads/VBA_Macros.png /Users/vsn/varun-portfolio/)",
+      "Bash(cp ~/Downloads/\"Hubspot Content Marketing.jpeg\" /Users/vsn/varun-portfolio/Hubspot_Content_Marketing.jpeg)",
+      "Bash(cp ~/Downloads/\"BU MIM.jpeg\" /Users/vsn/varun-portfolio/BU_MIM.jpeg)",
+      "Bash(cp ~/Downloads/\"SEO Certificate.png\" /Users/vsn/varun-portfolio/SEO_Certificate.png)",
+      "Bash(cp \"/Users/vsn/Documents/Certificates-claude/AI for Product Owners.png\" /Users/vsn/varun-portfolio/AI_for_Product_Owners.png)",
+      "Bash(cp \"/Users/vsn/Documents/Certificates-claude/PSM II.png\" /Users/vsn/varun-portfolio/PSM_II.png)",
+      "Bash(cp \"/Users/vsn/Documents/Certificates-claude/PM an intro.png\" /Users/vsn/varun-portfolio/PM_an_intro.png)",
+      "Bash(cp \"/Users/vsn/Documents/Certificates-claude/BU MIM.jpeg\" /Users/vsn/varun-portfolio/BU_MIM.jpeg)",
+      "Bash(cp \"/Users/vsn/Documents/Certificates-claude/VBA Macros.png\" /Users/vsn/varun-portfolio/VBA_Macros.png)",
+      "Bash(cp -r ~/Documents/logos /Users/vsn/varun-portfolio/)",
+      "Bash(cp -r ~/Documents/capabilities /Users/vsn/varun-portfolio/)",
+      "Bash(sed -i '' 's|src=\"capabilities/Problem Framing.PNG\"|src=\"capabilities/Problem%20Framing.PNG\"|g' /Users/vsn/varun-portfolio/index.html)",
+      "Bash(sed -i '' 's|src=\"capabilities/Agile Delivery.png\"|src=\"capabilities/Agile%20Delivery.png\"|g' /Users/vsn/varun-portfolio/index.html)",
+      "Bash(sed -i '' 's|src=\"capabilities/AI Augmented Strategy.webp\"|src=\"capabilities/AI%20Augmented%20Strategy.webp\"|g' /Users/vsn/varun-portfolio/index.html)",
+      "Bash(sed -i '' 's|src=\"capabilities/Stakeholder Communication.png\"|src=\"capabilities/Stakeholder%20Communication.png\"|g' /Users/vsn/varun-portfolio/index.html)",
+      "Bash(sed -i '' 's|src=\"capabilities/Data Driven Decisions.png\"|src=\"capabilities/Data%20Driven%20Decisions.png\"|g' /Users/vsn/varun-portfolio/index.html)",
+      "Bash(cp ~/Documents/Photos/\"FT Logo.png\" /Users/vsn/varun-portfolio/logos/\"FT Logo.png\")",
+      "Bash(cp ~/Documents/Photos/\"SquadBase Logo.png\" /Users/vsn/varun-portfolio/logos/\"SquadBase Logo.png\")"
+    ]
+  }
+}
