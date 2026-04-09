@@ -82,6 +82,71 @@
       --card-bg:       rgba(242,237,230,0.97);
     }
 
+    /* ── Light mode: orbital timeline overrides ── */
+    html:not(.dark) .orbit-ring {
+      border-color: rgba(0,0,0,0.12);
+    }
+    html:not(.dark) .orbit-node {
+      background: #f2ede6;
+      border-color: rgba(0,0,0,0.25);
+      color: #1a1a1a;
+    }
+    html:not(.dark) .orbit-node svg {
+      color: #1a1a1a;
+      stroke: #1a1a1a;
+    }
+    html:not(.dark) .orbit-node-label {
+      color: rgba(26,26,26,0.6);
+    }
+    html:not(.dark) .orbit-node-wrap.active .orbit-node {
+      background: #1a1a1a;
+      border-color: #1a1a1a;
+      color: #f5f0e8;
+    }
+    html:not(.dark) .orbit-node-wrap.active .orbit-node svg {
+      color: #f5f0e8;
+      stroke: #f5f0e8;
+    }
+    html:not(.dark) .orbit-node-wrap.related .orbit-node {
+      background: rgba(139,105,20,0.15);
+      border-color: #8B6914;
+    }
+    html:not(.dark) .orbit-ping-1,
+    html:not(.dark) .orbit-ping-2 {
+      border-color: rgba(0,0,0,0.15);
+    }
+    html:not(.dark) .orbit-card {
+      background: #ffffff;
+      border: 0.5px solid rgba(0,0,0,0.12);
+    }
+    html:not(.dark) .orbit-connector {
+      background: rgba(0,0,0,0.15);
+    }
+    html:not(.dark) .orbit-card-role {
+      color: #1a1a1a;
+    }
+    html:not(.dark) .orbit-card-company {
+      color: rgba(26,26,26,0.55);
+    }
+    html:not(.dark) .orbit-badge {
+      color: #1a1a1a;
+    }
+    html:not(.dark) .orbit-energy-bar {
+      background: rgba(0,0,0,0.08);
+    }
+    html:not(.dark) .orbit-card .tag {
+      color: #8B6914;
+      border-color: rgba(139,105,20,0.3);
+      background: rgba(139,105,20,0.08);
+    }
+    html:not(.dark) .orbit-related-btn {
+      color: rgba(26,26,26,0.6);
+      border-color: rgba(0,0,0,0.15);
+    }
+    html:not(.dark) .orbit-related-btn:hover {
+      color: #1a1a1a;
+    }
+
     /* ─────────────────────────────────────────
        RESET & BASE
     ───────────────────────────────────────── */
