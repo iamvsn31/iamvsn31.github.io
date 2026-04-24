@@ -6,9 +6,11 @@
   <title>Varun Nallari — Portfolio</title>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://upload.wikimedia.org; connect-src 'self';" />
   <meta name="referrer" content="no-referrer" />
+  <!-- Remove before design-partner pilot goes public -->
+  <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <script>
     (function () {
       var saved = localStorage.getItem('theme');
@@ -1345,6 +1347,796 @@
     @media (max-width: 480px) {
       .hero-name { font-size: clamp(48px, 14vw, 72px); }
     }
+
+    /* ===== SRT MODAL ===== */
+    .proj-box--srt {
+      width: 560px;
+      max-height: 88vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+    .proj-box--srt::-webkit-scrollbar { width: 4px; }
+    .proj-box--srt::-webkit-scrollbar-track { background: transparent; }
+    .proj-box--srt::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 4px; }
+
+    .srt-wordmark {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+    .srt-subline {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--text-hint);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+    .srt-status-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      border: 0.5px solid var(--accent);
+      border-radius: 4px;
+      padding: 4px 10px;
+      white-space: nowrap;
+      align-self: center;
+    }
+    .srt-section-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-hint);
+      margin: 1.4rem 0 0.5rem;
+    }
+    .srt-body {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .srt-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .srt-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: 3px;
+      padding: 3px 8px;
+    }
+    .srt-decisions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .srt-decision-item {
+      padding: 12px 14px;
+      border: 0.5px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface, rgba(255,255,255,0.02));
+    }
+    .srt-decision-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--white, #fff);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .srt-decision-body {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .srt-video-wrap {
+      margin-top: 0.25rem;
+    }
+    .srt-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 6px;
+      border: 0.5px solid var(--border);
+    }
+    .srt-video-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.5px dashed var(--border);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-hint);
+      letter-spacing: 0.08em;
+    }
+    .srt-status-line {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--text-hint);
+      text-align: center;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    /* ===== AI PRODUCTS SECTION ===== */
+    .ai-tools-sub {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 3rem;
+      line-height: 1.65;
+    }
+
+    .ai-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+    }
+
+    .ai-tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+      cursor: default;
+    }
+
+    .ai-tool-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .ai-tool-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .ai-tool-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .ai-tool-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-hint);
+    }
+
+    .ai-tool-status.live { color: #4ade80; }
+    .ai-tool-status.pre-launch { color: var(--accent); }
+
+    .ai-status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse-ai-dot 2s infinite;
+    }
+
+    .ai-status-dot.pre-launch { background: var(--accent); }
+
+    @keyframes pulse-ai-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    .ai-tool-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .ai-tool-desc {
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .ai-tool-stats {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--accent-dim);
+      border: 1px solid rgba(200,169,110,0.18);
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+    }
+
+    .ai-stat { display: flex; flex-direction: column; gap: 3px; }
+
+    .ai-stat-num {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .ai-stat-label {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-family: var(--font-mono);
+    }
+
+    .ai-stat-divider {
+      width: 1px;
+      height: 30px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .ai-tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .ai-tag {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.03em;
+      padding: 3px 9px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .ai-case-study-btn {
+      display: inline-block;
+      margin-top: 0.2rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+      font-family: var(--font-sans);
+    }
+
+    .ai-case-study-btn:hover { opacity: 0.7; text-decoration: none; }
+
+    /* ===== SHA MODAL ===== */
+    .sha-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      z-index: 9000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 3rem 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .sha-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sha-box {
+      background: var(--off-black);
+      border: 0.5px solid var(--border-bright);
+      border-radius: 16px;
+      max-width: 740px;
+      width: 100%;
+      padding: 2.5rem 2.5rem 3rem;
+      position: relative;
+    }
+
+    .sha-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: var(--border);
+      border: 0.5px solid var(--border-bright);
+      color: var(--text-secondary);
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, color 0.2s;
+      font-family: inherit;
+    }
+
+    .sha-close:hover {
+      background: var(--border-em);
+      color: var(--text-primary);
+    }
+
+    .sha-modal-header { margin-bottom: 2rem; }
+
+    .sha-modal-badge {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .sha-modal-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+    }
+
+    .sha-modal-tagline {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .sha-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .sha-metric {
+      background: var(--accent-dim);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sha-metric-num {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .sha-metric-label {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+    }
+
+    .sha-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 2rem;
+    }
+
+    .sha-section { margin-bottom: 2rem; }
+
+    .sha-section-title {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.75rem;
+    }
+
+    .sha-section-body {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin: 0 0 0.75rem;
+    }
+
+    .sha-section-body code {
+      font-family: var(--font-mono);
+      background: var(--border);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.82em;
+      color: var(--text-primary);
+    }
+
+    .sha-decision {
+      background: var(--surface);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .sha-decision-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .sha-decision .sha-section-body { margin-bottom: 0; }
+
+    .sha-eval-table {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+    }
+
+    .sha-eval-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .sha-eval-row:last-child { border-bottom: none; }
+
+    .sha-eval-header {
+      background: var(--surface-2);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .sha-green { color: #4ade80; font-weight: 700; }
+    .sha-red { color: #f87171; font-weight: 700; }
+
+    .sha-tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .sha-tag {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      padding: 3px 9px;
+      border-radius: 20px;
+      border: 1px solid rgba(200,169,110,0.25);
+      color: var(--accent);
+    }
+
+    .sha-approach-note {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 640px) {
+      .sha-metrics-row { grid-template-columns: repeat(2, 1fr); }
+      .sha-box { padding: 1.75rem 1.5rem 2.5rem; }
+      .ai-tool-stats { flex-wrap: wrap; }
+    }
+
+    /* ===== SRT FLOW COMPONENT (scoped) ===== */
+    .srt-flow-wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0.25rem 0 1rem;
+      padding: 20px 16px 24px;
+      background: #0f0f0f;
+      border: 0.5px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+    }
+
+    .srt-flow-wrap .srtf-timeline {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      padding: 0 8px;
+    }
+
+    .srt-flow-wrap .srtf-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      width: 68px;
+    }
+
+    .srt-flow-wrap .srtf-node {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111111;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      position: relative;
+      flex-shrink: 0;
+      transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+      z-index: 2;
+    }
+
+    .srt-flow-wrap .srtf-node svg {
+      width: 16px;
+      height: 16px;
+      stroke: rgba(245,240,232,0.25);
+      transition: stroke 0.4s ease;
+    }
+
+    .srt-flow-wrap .srtf-stage.done .srtf-node { background: rgba(122,160,107,0.12); border-color: rgba(122,160,107,0.7); }
+    .srt-flow-wrap .srtf-stage.done .srtf-node svg { stroke: #7aa06b; }
+
+    .srt-flow-wrap .srtf-stage.active .srtf-node {
+      background: rgba(200,169,110,0.1);
+      border-color: #c8a96e;
+      box-shadow: 0 0 0 5px rgba(200,169,110,0.07), 0 0 18px rgba(200,169,110,0.25);
+    }
+    .srt-flow-wrap .srtf-stage.active .srtf-node svg { stroke: #c8a96e; }
+
+    .srt-flow-wrap .srtf-stage.active .srtf-node::after {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,169,110,0.35);
+      animation: srtf-pulse-ring 2s ease-out infinite;
+      pointer-events: none;
+    }
+    @keyframes srtf-pulse-ring {
+      0%   { transform: scale(1);   opacity: 0.7; }
+      100% { transform: scale(1.4); opacity: 0;   }
+    }
+
+    .srt-flow-wrap .srtf-stage-name {
+      font-weight: 600;
+      font-size: 11px;
+      margin-top: 8px;
+      color: rgba(245,240,232,0.28);
+      letter-spacing: 0.01em;
+      transition: color 0.3s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .srt-flow-wrap .srtf-stage-sub {
+      font-family: 'Space Mono', 'DM Mono', monospace;
+      font-size: 7px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.18);
+      margin-top: 3px;
+      transition: color 0.3s ease;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .srt-flow-wrap .srtf-stage.active .srtf-stage-name { color: #c8a96e; }
+    .srt-flow-wrap .srtf-stage.active .srtf-stage-sub  { color: rgba(200,169,110,0.55); }
+    .srt-flow-wrap .srtf-stage.done  .srtf-stage-name  { color: rgba(245,240,232,0.5); }
+    .srt-flow-wrap .srtf-stage.done  .srtf-stage-sub   { color: rgba(122,160,107,0.45); }
+
+    .srt-flow-wrap .srtf-connector {
+      flex: 1;
+      height: 2px;
+      margin-top: 21px;
+      position: relative;
+      background: rgba(255,255,255,0.07);
+      border-radius: 1px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .srt-flow-wrap .srtf-connector-fill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #b8924a 0%, #e0c98a 50%, #c8a96e 100%);
+      border-radius: 1px;
+      box-shadow: 0 0 6px rgba(200,169,110,0.55), 0 0 2px rgba(200,169,110,0.9);
+    }
+
+    .srt-flow-wrap .srtf-card-wrap {
+      width: 100%;
+      margin-top: 24px;
+      position: relative;
+      min-height: 290px;
+    }
+
+    .srt-flow-wrap .srtf-card {
+      position: absolute;
+      inset: 0;
+      background: #0f0f0f;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+      display: flex;
+    }
+    .srt-flow-wrap .srtf-card.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+      position: relative;
+    }
+
+    .srt-flow-wrap .srtf-card-visual {
+      flex: 1;
+      min-height: 270px;
+      background: #0d0d0d;
+      border-right: 0.5px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      overflow: hidden;
+    }
+
+    .srt-flow-wrap .srtf-card-desc {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 9px;
+      background: #111111;
+    }
+
+    .srt-flow-wrap .srtf-card-step {
+      font-family: 'Space Mono', 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #c8a96e;
+    }
+    .srt-flow-wrap .srtf-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #f5f0e8;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+    .srt-flow-wrap .srtf-card-body {
+      font-size: 11.5px;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.65;
+    }
+    .srt-flow-wrap .srtf-card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(200,169,110,0.08);
+      border: 0.5px solid rgba(200,169,110,0.2);
+      border-radius: 20px;
+      padding: 4px 9px;
+      font-size: 9.5px;
+      color: #c8a96e;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    .srt-flow-wrap .srtf-nav-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .srt-flow-wrap .srtf-nav-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      padding: 0;
+    }
+    .srt-flow-wrap .srtf-nav-dot.active {
+      background: #c8a96e;
+      width: 20px;
+      border-radius: 3px;
+    }
+
+    /* Flow card visual contents */
+    .srt-flow-wrap .srtf-paste-mock { width:100%; max-width:360px; display:flex; flex-direction:column; gap:9px; }
+    .srt-flow-wrap .srtf-paste-label { font-family:'Space Mono',monospace; font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(245,240,232,0.3); }
+    .srt-flow-wrap .srtf-paste-box { background:#1a1a1a; border:0.5px solid rgba(255,255,255,0.1); border-radius:10px; padding:13px; font-size:10.5px; color:rgba(245,240,232,0.65); line-height:1.7; }
+    .srt-flow-wrap .srtf-hl  { color:#c8a96e; }
+    .srt-flow-wrap .srtf-dim { color:rgba(245,240,232,0.3); }
+    .srt-flow-wrap .srtf-paste-cursor { display:inline-block; width:2px; height:12px; background:#c8a96e; border-radius:1px; margin-left:1px; vertical-align:middle; animation:srtf-blink 1s step-end infinite; }
+    @keyframes srtf-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .srt-flow-wrap .srtf-format-pills { display:flex; gap:5px; flex-wrap:wrap; }
+    .srt-flow-wrap .srtf-format-pill { background:rgba(255,255,255,0.04); border:0.5px solid rgba(255,255,255,0.09); border-radius:4px; padding:3px 8px; font-size:8px; font-family:'Space Mono',monospace; letter-spacing:0.1em; color:rgba(245,240,232,0.3); text-transform:uppercase; }
+    .srt-flow-wrap .srtf-format-pill.on { border-color:rgba(200,169,110,0.3); color:#c8a96e; background:rgba(200,169,110,0.06); }
+
+    .srt-flow-wrap .srtf-analyze-mock { width:100%; max-width:360px; display:flex; flex-direction:column; gap:7px; }
+    .srt-flow-wrap .srtf-analyze-header { display:flex; align-items:center; justify-content:space-between; padding:9px 13px; background:rgba(255,255,255,0.02); border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; }
+    .srt-flow-wrap .srtf-analyze-left { display:flex; align-items:center; gap:7px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; color:#c8a96e; }
+    .srt-flow-wrap .srtf-spinner { width:11px; height:11px; border:1.5px solid rgba(200,169,110,0.2); border-top-color:#c8a96e; border-radius:50%; animation:srtf-spin 0.8s linear infinite; }
+    @keyframes srtf-spin { to { transform:rotate(360deg); } }
+    .srt-flow-wrap .srtf-abar-wrap { height:3px; background:rgba(255,255,255,0.06); border-radius:2px; overflow:hidden; }
+    .srt-flow-wrap .srtf-abar { height:100%; background:linear-gradient(90deg,rgba(200,169,110,0.5),#c8a96e); border-radius:2px; animation:srtf-fillbar 3.5s ease forwards infinite; }
+    @keyframes srtf-fillbar { 0%{width:0%} 80%{width:85%} 100%{width:92%} }
+    .srt-flow-wrap .srtf-sec-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+    .srt-flow-wrap .srtf-sec-row { display:flex; align-items:center; gap:6px; padding:4px 7px; border-radius:5px; background:rgba(255,255,255,0.015); }
+    .srt-flow-wrap .srtf-sdot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+    .srt-flow-wrap .srtf-sdot.done   { background:#7aa06b; }
+    .srt-flow-wrap .srtf-sdot.active { background:#c8a96e; animation:srtf-dp 1.2s ease-in-out infinite; box-shadow:0 0 5px rgba(200,169,110,0.6); }
+    .srt-flow-wrap .srtf-sdot.pend   { background:rgba(255,255,255,0.1); }
+    @keyframes srtf-dp { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .srt-flow-wrap .srtf-slabel { font-size:8.5px; color:rgba(245,240,232,0.3); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .srt-flow-wrap .srtf-sec-row.s-done   .srtf-slabel { color:rgba(245,240,232,0.45); }
+    .srt-flow-wrap .srtf-sec-row.s-active .srtf-slabel { color:rgba(245,240,232,0.85); }
+
+    .srt-flow-wrap .srtf-refine-mock { width:100%; max-width:360px; display:flex; flex-direction:column; gap:7px; }
+    .srt-flow-wrap .srtf-resolve-item { display:flex; gap:9px; align-items:flex-start; padding:9px 11px; background:rgba(255,255,255,0.02); border:0.5px solid rgba(255,255,255,0.07); border-radius:8px; }
+    .srt-flow-wrap .srtf-rtype { font-family:'Space Mono',monospace; font-size:7px; letter-spacing:0.12em; text-transform:uppercase; padding:2px 6px; border-radius:3px; flex-shrink:0; margin-top:1px; }
+    .srt-flow-wrap .srtf-rtype.conflict { background:rgba(224,112,112,0.1); color:#e07070; border:0.5px solid rgba(224,112,112,0.2); }
+    .srt-flow-wrap .srtf-rtype.question { background:rgba(200,169,110,0.1); color:#c8a96e; border:0.5px solid rgba(200,169,110,0.2); }
+    .srt-flow-wrap .srtf-rtext  { font-size:10.5px; color:rgba(245,240,232,0.55); line-height:1.55; }
+    .srt-flow-wrap .srtf-ranswer{ font-size:9.5px; color:#7aa06b; margin-top:3px; font-style:italic; }
+    .srt-flow-wrap .srtf-chat-bubble { display:flex; flex-direction:column; align-items:flex-end; gap:3px; }
+    .srt-flow-wrap .srtf-bubble { padding:7px 11px; border-radius:10px 10px 3px 10px; background:rgba(200,169,110,0.1); border:0.5px solid rgba(200,169,110,0.2); font-size:10.5px; color:rgba(245,240,232,0.7); max-width:90%; text-align:right; }
+    .srt-flow-wrap .srtf-patch-btn { display:flex; align-items:center; gap:5px; padding:5px 11px; background:rgba(122,160,107,0.08); border:0.5px solid rgba(122,160,107,0.3); border-radius:6px; font-size:8px; font-family:'Space Mono',monospace; letter-spacing:0.1em; text-transform:uppercase; color:#7aa06b; font-weight:700; cursor:default; margin-top:2px; }
+
+    .srt-flow-wrap .srtf-export-mock { width:100%; max-width:360px; display:flex; flex-direction:column; gap:9px; }
+    .srt-flow-wrap .srtf-export-summary { display:flex; gap:7px; }
+    .srt-flow-wrap .srtf-export-stat { flex:1; padding:8px; background:rgba(200,169,110,0.05); border:0.5px solid rgba(200,169,110,0.15); border-radius:8px; text-align:center; }
+    .srt-flow-wrap .srtf-export-stat-val { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:#c8a96e; }
+    .srt-flow-wrap .srtf-export-stat-lbl { font-size:8px; color:rgba(245,240,232,0.35); margin-top:2px; line-height:1.4; }
+    .srt-flow-wrap .srtf-tool-row { display:flex; align-items:center; gap:10px; padding:7px 11px; background:rgba(255,255,255,0.025); border:0.5px solid rgba(255,255,255,0.08); border-radius:8px; }
+    .srt-flow-wrap .srtf-tool-row.pushed { border-color:rgba(122,160,107,0.3); background:rgba(122,160,107,0.04); }
+    .srt-flow-wrap .srtf-tool-mark { width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; flex-shrink:0; }
+    .srt-flow-wrap .srtf-tool-info { flex:1; }
+    .srt-flow-wrap .srtf-tool-name  { font-size:10.5px; font-weight:600; color:rgba(245,240,232,0.75); }
+    .srt-flow-wrap .srtf-tool-count { font-family:'Space Mono',monospace; font-size:7.5px; letter-spacing:0.07em; color:rgba(245,240,232,0.3); margin-top:1px; }
+    .srt-flow-wrap .srtf-tool-status { font-family:'Space Mono',monospace; font-size:7.5px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; }
+    .srt-flow-wrap .srtf-tool-status.pushed { color:#7aa06b; }
+    .srt-flow-wrap .srtf-tool-status.ready  { color:rgba(200,169,110,0.7); }
   </style>
 </head>
 <body>
@@ -1359,6 +2151,7 @@
         <a href="#what">About</a>
         <a href="#experience">Work</a>
         <a href="#projects">Projects</a>
+        <a href="#ai-products">AI Products</a>
         <a href="#credentials">Credentials</a>
         <a href="#contact">Contact</a>
       </div>
@@ -1387,6 +2180,7 @@
     <a href="#what" class="drawer-link">About</a>
     <a href="#experience" class="drawer-link">Work</a>
     <a href="#projects" class="drawer-link">Projects</a>
+    <a href="#ai-products" class="drawer-link">AI Products</a>
     <a href="#credentials" class="drawer-link">Credentials</a>
     <a href="#contact" class="drawer-link">Contact</a>
   </div>
@@ -1629,7 +2423,110 @@
   </section>
 
   <!-- ══════════════════════════════════════
-       6. CERTIFICATIONS
+       6. AI PRODUCTS
+  ══════════════════════════════════════ -->
+  <section id="ai-products" class="section">
+    <div class="container">
+      <p class="section-label reveal" data-delay="0">AI Products</p>
+      <p class="ai-tools-sub reveal" data-delay="80">Products I've designed and shipped using AI — built to solve real PM and engineering team workflow problems.</p>
+
+      <div class="ai-tools-grid reveal-group">
+
+        <!-- SRT Card -->
+        <div class="ai-tool-card reveal">
+          <div class="ai-tool-header">
+            <div class="ai-tool-badge">AI Product · Full Stack</div>
+            <div class="ai-tool-status pre-launch">
+              <span class="ai-status-dot pre-launch"></span>Pre-launch
+            </div>
+          </div>
+
+          <h3 class="ai-tool-title">SRT — Stakeholder Requirements Translator</h3>
+
+          <p class="ai-tool-desc">
+            Full-stack AI tool that converts raw stakeholder input — emails, transcripts, Slack threads — into a 12-section PSM II–aligned BRD with real-time streaming, guided conflict resolution (Resolve Mode), and one-click export to Jira, Linear, and Azure DevOps.
+          </p>
+
+          <div class="ai-tool-stats">
+            <div class="ai-stat">
+              <span class="ai-stat-num">12</span>
+              <span class="ai-stat-label">BRD sections auto-generated</span>
+            </div>
+            <div class="ai-stat-divider"></div>
+            <div class="ai-stat">
+              <span class="ai-stat-num">&lt;60s</span>
+              <span class="ai-stat-label">Input to sprint-ready output</span>
+            </div>
+            <div class="ai-stat-divider"></div>
+            <div class="ai-stat">
+              <span class="ai-stat-num">PSM II</span>
+              <span class="ai-stat-label">Aligned across all sections</span>
+            </div>
+          </div>
+
+          <div class="ai-tool-tags">
+            <span class="ai-tag">Next.js 16</span>
+            <span class="ai-tag">React 19</span>
+            <span class="ai-tag">TypeScript</span>
+            <span class="ai-tag">Anthropic Claude</span>
+            <span class="ai-tag">SSE Streaming</span>
+            <span class="ai-tag">Jira API</span>
+            <span class="ai-tag">Supabase</span>
+          </div>
+
+          <a class="ai-case-study-btn project-view-link" data-modal="modal-srt">View Case Study →</a>
+        </div>
+
+        <!-- Sprint Health Analyzer Card -->
+        <div class="ai-tool-card reveal">
+          <div class="ai-tool-header">
+            <div class="ai-tool-badge">Claude Skill · React Dashboard</div>
+            <div class="ai-tool-status live">
+              <span class="ai-status-dot"></span>Live
+            </div>
+          </div>
+
+          <h3 class="ai-tool-title">Sprint Health Analyzer</h3>
+
+          <p class="ai-tool-desc">
+            A Claude skill that generates interactive React dashboards from JIRA CSV exports — scoring 5 agile KPIs against absolute industry benchmarks. Designed to surface real team health, not vanity metrics.
+          </p>
+
+          <div class="ai-tool-stats">
+            <div class="ai-stat">
+              <span class="ai-stat-num">95%</span>
+              <span class="ai-stat-label">Pass rate with skill</span>
+            </div>
+            <div class="ai-stat-divider"></div>
+            <div class="ai-stat">
+              <span class="ai-stat-num">49%</span>
+              <span class="ai-stat-label">Baseline (no skill)</span>
+            </div>
+            <div class="ai-stat-divider"></div>
+            <div class="ai-stat">
+              <span class="ai-stat-num">+46pt</span>
+              <span class="ai-stat-label">Skill lift</span>
+            </div>
+          </div>
+
+          <div class="ai-tool-tags">
+            <span class="ai-tag">React</span>
+            <span class="ai-tag">Claude Skill</span>
+            <span class="ai-tag">JIRA CSV</span>
+            <span class="ai-tag">Recharts</span>
+            <span class="ai-tag">PapaParse</span>
+            <span class="ai-tag">Tailwind CSS</span>
+          </div>
+
+          <button class="ai-case-study-btn" data-modal="modal-sha">View Case Study →</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       7. CERTIFICATIONS
   ══════════════════════════════════════ -->
   <section id="credentials" class="section">
     <div class="container">
@@ -1832,6 +2729,393 @@
       </div>
       <hr class="proj-divider" />
       <div class="proj-modal-title">Morph AI — U.S. Market Entry</div>
+    </div>
+  </div>
+
+  <!-- SRT Project Modal -->
+  <div class="proj-overlay" id="modal-srt" role="dialog" aria-modal="true" aria-label="SRT project">
+    <div class="proj-box proj-box--srt">
+      <button class="proj-close" id="srt-close" aria-label="Close">✕</button>
+
+      <!-- Header row -->
+      <div class="proj-cols">
+        <div>
+          <div class="srt-wordmark">SRT</div>
+          <div class="srt-subline">Stakeholder Requirements Translator</div>
+        </div>
+        <div class="srt-status-badge">Pre-launch · Q2 2026 pilot</div>
+      </div>
+      <hr class="proj-divider" />
+
+      <!-- Problem -->
+      <div class="srt-section-label">Problem</div>
+      <p class="srt-body">PMs and BAs spend hours translating stakeholder input into engineering-ready specs. The process is well-defined — BRDs, user stories, acceptance criteria, risk matrices — but it's done almost entirely by hand. Generic AI prompts generate with false confidence; they don't surface what they don't know. SRT fixes the second half of that sentence.</p>
+
+      <!-- How It Works — interactive flow component -->
+      <div class="srt-section-label">How It Works</div>
+      <div class="srt-flow-wrap">
+
+        <div class="srtf-timeline">
+
+          <div class="srtf-stage active" id="srtf-s0">
+            <div class="srtf-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                <rect x="9" y="3" width="6" height="4" rx="1.5"/>
+                <line x1="9" y1="12" x2="15" y2="12"/>
+                <line x1="9" y1="16" x2="13" y2="16"/>
+              </svg>
+            </div>
+            <span class="srtf-stage-name">Paste</span>
+            <span class="srtf-stage-sub">Raw input</span>
+          </div>
+
+          <div class="srtf-connector" id="srtf-c0"><div class="srtf-connector-fill" id="srtf-cf0"></div></div>
+
+          <div class="srtf-stage" id="srtf-s1">
+            <div class="srtf-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <span class="srtf-stage-name">Analyze</span>
+            <span class="srtf-stage-sub">BRD streams live</span>
+          </div>
+
+          <div class="srtf-connector" id="srtf-c1"><div class="srtf-connector-fill" id="srtf-cf1"></div></div>
+
+          <div class="srtf-stage" id="srtf-s2">
+            <div class="srtf-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <line x1="9" y1="10" x2="15" y2="10"/>
+              </svg>
+            </div>
+            <span class="srtf-stage-name">Refine</span>
+            <span class="srtf-stage-sub">Resolve &amp; iterate</span>
+          </div>
+
+          <div class="srtf-connector" id="srtf-c2"><div class="srtf-connector-fill" id="srtf-cf2"></div></div>
+
+          <div class="srtf-stage" id="srtf-s3">
+            <div class="srtf-node">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 22 20 2 20 2 4 10 4"/>
+                <polyline points="16 2 22 2 22 8"/>
+                <line x1="11" y1="13" x2="22" y2="2"/>
+              </svg>
+            </div>
+            <span class="srtf-stage-name">Export</span>
+            <span class="srtf-stage-sub">Push to PM tool</span>
+          </div>
+
+        </div><!-- /.srtf-timeline -->
+
+        <div class="srtf-card-wrap">
+
+          <div class="srtf-card active" id="srtf-card-0">
+            <div class="srtf-card-visual">
+              <div class="srtf-paste-mock">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                  <span class="srtf-paste-label">Stakeholder input</span>
+                  <div class="srtf-format-pills">
+                    <span class="srtf-format-pill on">Email</span>
+                    <span class="srtf-format-pill">Slack</span>
+                    <span class="srtf-format-pill">Transcript</span>
+                    <span class="srtf-format-pill">Notes</span>
+                  </div>
+                </div>
+                <div class="srtf-paste-box">
+                  <span class="srtf-dim">From: </span><span class="srtf-hl">sarah@acme.com</span><br/>
+                  <span class="srtf-dim">Subject: </span>New dashboard feature for Q3<br/><br/>
+                  Hey team — we need a way for customers to <span class="srtf-hl">track their usage in real time</span>.
+                  Finance wants <span class="srtf-hl">export to CSV</span>, the mobile team wants it
+                  <span class="srtf-hl">responsive</span>, and legal says we need audit logs.
+                  Not sure about the timeline but <span class="srtf-hl">stakeholders are pushing for Q3</span>.<span class="srtf-paste-cursor"></span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+                  <span style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:0.1em;color:rgba(245,240,232,0.2);text-transform:uppercase;">347 chars · 4 signals detected</span>
+                  <div style="display:flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(200,169,110,0.1);border:0.5px solid rgba(200,169,110,0.3);border-radius:6px;cursor:default;">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#c8a96e;font-weight:700;">Analyze</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="srtf-card-desc">
+              <span class="srtf-card-step">Step 01 — Paste</span>
+              <h3 class="srtf-card-title">Drop in any raw stakeholder input</h3>
+              <p class="srtf-card-body">Emails, Slack threads, meeting notes, voice memo transcripts — SRT handles unstructured text, mixed formats, and domain jargon without any pre-processing.</p>
+              <div class="srtf-card-tag">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                No templates. No formatting required.
+              </div>
+            </div>
+          </div>
+
+          <div class="srtf-card" id="srtf-card-1">
+            <div class="srtf-card-visual">
+              <div class="srtf-analyze-mock">
+                <div class="srtf-analyze-header">
+                  <div class="srtf-analyze-left"><div class="srtf-spinner"></div>Generating BRD</div>
+                  <span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(245,240,232,0.25);letter-spacing:0.08em;">8 / 12 sections</span>
+                </div>
+                <div class="srtf-abar-wrap"><div class="srtf-abar"></div></div>
+                <div class="srtf-sec-grid">
+                  <div class="srtf-sec-row s-done"><div class="srtf-sdot done"></div><span class="srtf-slabel">Metadata &amp; Overview</span></div>
+                  <div class="srtf-sec-row s-done"><div class="srtf-sdot done"></div><span class="srtf-slabel">Problem &amp; Context</span></div>
+                  <div class="srtf-sec-row s-done"><div class="srtf-sdot done"></div><span class="srtf-slabel">Objectives &amp; KPIs</span></div>
+                  <div class="srtf-sec-row s-done"><div class="srtf-sdot done"></div><span class="srtf-slabel">Users &amp; Personas</span></div>
+                  <div class="srtf-sec-row s-done"><div class="srtf-sdot done"></div><span class="srtf-slabel">Scope &amp; Requirements</span></div>
+                  <div class="srtf-sec-row s-done"><div class="srtf-sdot done"></div><span class="srtf-slabel">UX &amp; Flows</span></div>
+                  <div class="srtf-sec-row s-done"><div class="srtf-sdot done"></div><span class="srtf-slabel">Solution Approach</span></div>
+                  <div class="srtf-sec-row s-active"><div class="srtf-sdot active"></div><span class="srtf-slabel" style="color:rgba(245,240,232,0.85);">Dependencies &amp; Risks</span></div>
+                  <div class="srtf-sec-row"><div class="srtf-sdot pend"></div><span class="srtf-slabel">Prioritisation</span></div>
+                  <div class="srtf-sec-row"><div class="srtf-sdot pend"></div><span class="srtf-slabel">Implementation Notes</span></div>
+                  <div class="srtf-sec-row"><div class="srtf-sdot pend"></div><span class="srtf-slabel">Acceptance Criteria</span></div>
+                  <div class="srtf-sec-row"><div class="srtf-sdot pend"></div><span class="srtf-slabel">Open Questions</span></div>
+                </div>
+                <div style="padding:8px 10px;background:rgba(255,255,255,0.01);border:0.5px solid rgba(255,255,255,0.06);border-radius:6px;">
+                  <span style="font-family:'Space Mono',monospace;font-size:8.5px;color:rgba(245,240,232,0.2);font-style:italic;">Surfacing risks, dependencies, and blockers…</span>
+                </div>
+              </div>
+            </div>
+            <div class="srtf-card-desc">
+              <span class="srtf-card-step">Step 02 — Analyze</span>
+              <h3 class="srtf-card-title">Full BRD streams in real time</h3>
+              <p class="srtf-card-body">Watch the AI reason through your input — 12 PSM II–aligned sections generated live. Quality score, epics, stories, acceptance criteria, and risk analysis all auto-produced.</p>
+              <div class="srtf-card-tag">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Completes in under 60 seconds
+              </div>
+            </div>
+          </div>
+
+          <div class="srtf-card" id="srtf-card-2">
+            <div class="srtf-card-visual">
+              <div class="srtf-refine-mock">
+                <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(245,240,232,0.25);margin-bottom:2px;">Resolve Mode — 3 items</div>
+                <div class="srtf-resolve-item">
+                  <span class="srtf-rtype conflict">Conflict</span>
+                  <div>
+                    <div class="srtf-rtext">Mobile team wants responsive web — iOS team wants native app. Scope unclear.</div>
+                    <div class="srtf-ranswer">→ Web-responsive only for Q3. Native app deferred to Q4 roadmap.</div>
+                  </div>
+                </div>
+                <div class="srtf-resolve-item">
+                  <span class="srtf-rtype question">Question</span>
+                  <div><div class="srtf-rtext">What is the data retention period for audit logs?</div></div>
+                </div>
+                <div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(141,167,200,0.4);margin-top:4px;margin-bottom:2px;">Refinement chat</div>
+                <div class="srtf-chat-bubble">
+                  <div class="srtf-bubble">Expand the risk section to include data privacy risks</div>
+                  <div class="srtf-patch-btn">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#7aa06b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Apply to BRD · Section 8
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="srtf-card-desc">
+              <span class="srtf-card-step">Step 03 — Refine</span>
+              <h3 class="srtf-card-title">Resolve gaps. Iterate with chat.</h3>
+              <p class="srtf-card-body">Open questions and conflicts extracted into guided Q&amp;A. Answer what you know — AI regenerates a sharper BRD. Patch any section via chat in one click.</p>
+              <div class="srtf-card-tag">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-3.49"/></svg>
+                Quality score improves each pass
+              </div>
+            </div>
+          </div>
+
+          <div class="srtf-card" id="srtf-card-3">
+            <div class="srtf-card-visual">
+              <div class="srtf-export-mock">
+                <div class="srtf-export-summary">
+                  <div class="srtf-export-stat"><div class="srtf-export-stat-val">6</div><div class="srtf-export-stat-lbl">Epics</div></div>
+                  <div class="srtf-export-stat"><div class="srtf-export-stat-val">18</div><div class="srtf-export-stat-lbl">User Stories</div></div>
+                  <div class="srtf-export-stat"><div class="srtf-export-stat-val">24</div><div class="srtf-export-stat-lbl">Test Cases</div></div>
+                  <div class="srtf-export-stat"><div class="srtf-export-stat-val">87</div><div class="srtf-export-stat-lbl">Quality Score</div></div>
+                </div>
+                <div class="srtf-tool-row pushed">
+                  <div class="srtf-tool-mark" style="background:rgba(0,82,204,0.15);color:#0052CC;">J</div>
+                  <div class="srtf-tool-info"><div class="srtf-tool-name">Jira</div><div class="srtf-tool-count">6 epics · 18 stories · 8 subtasks pushed</div></div>
+                  <span class="srtf-tool-status pushed">✓ Done</span>
+                </div>
+                <div class="srtf-tool-row">
+                  <div class="srtf-tool-mark" style="background:rgba(94,106,210,0.15);color:#5E6AD2;">Li</div>
+                  <div class="srtf-tool-info"><div class="srtf-tool-name">Linear</div><div class="srtf-tool-count">Ready to push</div></div>
+                  <span class="srtf-tool-status ready">Ready</span>
+                </div>
+                <div class="srtf-tool-row">
+                  <div class="srtf-tool-mark" style="background:rgba(0,120,212,0.15);color:#0078D4;">Az</div>
+                  <div class="srtf-tool-info"><div class="srtf-tool-name">Azure DevOps</div><div class="srtf-tool-count">Ready to push</div></div>
+                  <span class="srtf-tool-status ready">Ready</span>
+                </div>
+                <div class="srtf-tool-row">
+                  <div class="srtf-tool-mark" style="background:rgba(240,106,106,0.15);color:#F06A6A;">As</div>
+                  <div class="srtf-tool-info"><div class="srtf-tool-name">Asana</div><div class="srtf-tool-count">Ready to push</div></div>
+                  <span class="srtf-tool-status ready">Ready</span>
+                </div>
+              </div>
+            </div>
+            <div class="srtf-card-desc">
+              <span class="srtf-card-step">Step 04 — Export</span>
+              <h3 class="srtf-card-title">Push structured tickets in one click</h3>
+              <p class="srtf-card-body">Epics, stories, and test cases pushed directly to Jira, Linear, Azure DevOps, or Asana with correct issue type mapping. No copy-pasting. No reformatting.</p>
+              <div class="srtf-card-tag">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Sprint-ready in under 60 seconds
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.srtf-card-wrap -->
+
+        <div class="srtf-nav-dots">
+          <button class="srtf-nav-dot active" id="srtf-dot-0"></button>
+          <button class="srtf-nav-dot" id="srtf-dot-1"></button>
+          <button class="srtf-nav-dot" id="srtf-dot-2"></button>
+          <button class="srtf-nav-dot" id="srtf-dot-3"></button>
+        </div>
+
+      </div><!-- /.srt-flow-wrap -->
+
+      <!-- Tech stack tags -->
+      <div class="srt-section-label">Stack</div>
+      <div class="srt-tags">
+        <span class="srt-tag">Next.js 16</span>
+        <span class="srt-tag">React 19</span>
+        <span class="srt-tag">TypeScript</span>
+        <span class="srt-tag">Anthropic Claude</span>
+        <span class="srt-tag">Supabase</span>
+        <span class="srt-tag">Clerk Auth</span>
+        <span class="srt-tag">SSE Streaming</span>
+        <span class="srt-tag">Jira API</span>
+        <span class="srt-tag">Framer Motion</span>
+      </div>
+
+      <!-- Hard decisions -->
+      <div class="srt-section-label">Hard Decisions</div>
+      <div class="srt-decisions">
+        <div class="srt-decision-item">
+          <div class="srt-decision-title">SSE over polling</div>
+          <p class="srt-decision-body">A 2,000–3,500 token BRD can't wait for a full response. Server-Sent Events stream section-by-section from the Anthropic SDK through a Next.js API route to the client, so the UI updates incrementally as content arrives.</p>
+        </div>
+        <div class="srt-decision-item">
+          <div class="srt-decision-title">Real-time section parser</div>
+          <p class="srt-decision-body">Claude generates in free-form markdown, not JSON. The parser buffers the streaming token stream and routes content to the correct section bucket by watching for heading patterns — tight enough to work reliably, loose enough to fail gracefully.</p>
+        </div>
+        <div class="srt-decision-item">
+          <div class="srt-decision-title">Resolve Mode two-pass architecture</div>
+          <p class="srt-decision-body">The second pass receives original input + first-pass BRD + extracted questions + user answers together — not just the answers appended to a new prompt. This preserves continuity so the refinement is a genuine upgrade, not a restart.</p>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="srt-status-line">Pre-launch &nbsp;·&nbsp; 10-team design-partner pilot Q2 2026 &nbsp;·&nbsp; V2 in development</div>
+    </div>
+  </div>
+
+  <!-- Sprint Health Analyzer Modal -->
+  <div id="modal-sha" class="sha-overlay" role="dialog" aria-modal="true" aria-labelledby="sha-modal-title">
+    <div class="sha-box">
+
+      <button class="sha-close" id="sha-close" aria-label="Close">✕</button>
+
+      <div class="sha-modal-header">
+        <div class="sha-modal-badge">Claude Skill · Agile Analytics</div>
+        <h2 class="sha-modal-title" id="sha-modal-title">Sprint Health Analyzer</h2>
+        <p class="sha-modal-tagline">From JIRA CSV to decision-ready dashboard — automated.</p>
+      </div>
+
+      <div class="sha-metrics-row">
+        <div class="sha-metric">
+          <span class="sha-metric-num">95%</span>
+          <span class="sha-metric-label">Assertion pass rate with skill</span>
+        </div>
+        <div class="sha-metric">
+          <span class="sha-metric-num">49%</span>
+          <span class="sha-metric-label">Baseline without skill</span>
+        </div>
+        <div class="sha-metric">
+          <span class="sha-metric-num">+46pt</span>
+          <span class="sha-metric-label">Skill lift across 3 test scenarios</span>
+        </div>
+        <div class="sha-metric">
+          <span class="sha-metric-num">836</span>
+          <span class="sha-metric-label">Lines of React, zero code written</span>
+        </div>
+      </div>
+
+      <hr class="sha-divider">
+
+      <div class="sha-section">
+        <h3 class="sha-section-title">The Problem</h3>
+        <p class="sha-section-body">Product managers and Scrum Masters spend hours each sprint manually computing metrics from JIRA exports, copying numbers into slide decks, and writing status updates. Existing JIRA dashboards show raw numbers — but don't score them, don't detect patterns, and don't tell you what to do next. This skill automates the full flow.</p>
+      </div>
+
+      <div class="sha-section">
+        <h3 class="sha-section-title">Key Product Decisions</h3>
+
+        <div class="sha-decision">
+          <div class="sha-decision-label">Why absolute benchmarks, not relative normalization</div>
+          <p class="sha-section-body">The original health score used <code>current / max_historical × 100</code>. That's vanity math — a consistently bad team scores "good." v3 uses absolute industry benchmarks: CV &lt; 0.15 for velocity stability, &lt;7 day cycle time, 85% reliability target. A bad team scores low regardless of their own history.</p>
+        </div>
+
+        <div class="sha-decision">
+          <div class="sha-decision-label">Goal presets over equal weights</div>
+          <p class="sha-section-body">Replaced the Equal/Custom toggle with intentional goal presets — Predictability (reliability-heavy), Speed (cycle time-heavy), Output (velocity-heavy), Custom (drag-to-reorder). Different teams optimize for different things. The dashboard makes that explicit.</p>
+        </div>
+
+        <div class="sha-decision">
+          <div class="sha-decision-label">Prescriptive insights over descriptive ones</div>
+          <p class="sha-section-body">Early version said "velocity is in freefall." That's obvious — every chart already shows it. v3 detects spillover (same ticket key across multiple sprints), flags assignee load imbalance, and roots each insight in cause + action, not just observation.</p>
+        </div>
+
+        <div class="sha-decision">
+          <div class="sha-decision-label">Drag-to-reorder over 4 dropdown selectors</div>
+          <p class="sha-section-body">The original Custom mode used 4 dropdowns to set priority. Drag-to-reorder communicates the ranking relationship more intuitively and maps directly to how PMs think about trade-offs — first matters most.</p>
+        </div>
+      </div>
+
+      <div class="sha-section">
+        <h3 class="sha-section-title">Design Rationale</h3>
+        <p class="sha-section-body">The 3×3 grid places the health score ring at center — the single most important number — with charts in the four corners and KPI cards at cardinal positions. This creates a natural visual hierarchy: eye goes to center, radiates outward to supporting data. Red flag strip at the top ensures critical alerts are never buried.</p>
+        <p class="sha-section-body">Design language follows JIRA, Linear, and Slack — tools agile teams already live in. Dark surface, blue primary, amber health states. No framework — single self-contained JSX file, no build step.</p>
+      </div>
+
+      <div class="sha-section">
+        <h3 class="sha-section-title">Evaluation Methodology</h3>
+        <p class="sha-section-body">Tested using a structured eval harness across 3 personas: formal quarterly reviewer, casual Scrum Master, and user with nonstandard JIRA column names. Each run scored 13 assertions covering output structure, circular progress ring rendering, goal preset behavior, spillover detection, and localStorage compliance.</p>
+        <div class="sha-eval-table">
+          <div class="sha-eval-row sha-eval-header">
+            <span>Configuration</span><span>Pass Rate</span><span>Passed</span><span>Failed</span>
+          </div>
+          <div class="sha-eval-row">
+            <span>With Skill (avg)</span><span class="sha-green">95%</span><span>12.3 / 13</span><span>0.7</span>
+          </div>
+          <div class="sha-eval-row">
+            <span>Without Skill (avg)</span><span class="sha-red">49%</span><span>6.3 / 13</span><span>6.7</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sha-section">
+        <h3 class="sha-section-title">Stack &amp; Approach</h3>
+        <div class="sha-tag-group">
+          <span class="sha-tag">React (hooks)</span>
+          <span class="sha-tag">Recharts</span>
+          <span class="sha-tag">PapaParse</span>
+          <span class="sha-tag">Tailwind CSS</span>
+          <span class="sha-tag">lucide-react</span>
+          <span class="sha-tag">Claude Skill (.skill)</span>
+          <span class="sha-tag">HTML5 Drag API</span>
+          <span class="sha-tag">SVG Progress Ring</span>
+          <span class="sha-tag">Prompt Engineering</span>
+        </div>
+        <p class="sha-section-body sha-approach-note">Built entirely via product spec design and structured prompting — no code written directly. The SKILL.md defines the full dashboard specification (layout, scoring logic, chart specs, insight detection rules). The skill generates the 836-line React component from that spec.</p>
+      </div>
+
     </div>
   </div>
 
@@ -2361,9 +3645,11 @@
       var morphClose    = document.getElementById('morph-close');
       if (franklinClose) franklinClose.addEventListener('click', function () { closeModal('modal-franklin'); });
       if (morphClose)    morphClose.addEventListener('click',    function () { closeModal('modal-morph'); });
+      var srtClose = document.getElementById('srt-close');
+      if (srtClose) srtClose.addEventListener('click', function () { closeModal('modal-srt'); });
 
       /* Backdrop click */
-      ['modal-franklin', 'modal-morph'].forEach(function (id) {
+      ['modal-franklin', 'modal-morph', 'modal-srt'].forEach(function (id) {
         var el = document.getElementById(id);
         if (el) el.addEventListener('click', function (e) { if (e.target === el) closeModal(id); });
       });
@@ -2371,7 +3657,7 @@
       /* Escape */
       document.addEventListener('keydown', function (e) {
         if (e.key !== 'Escape') return;
-        ['modal-franklin', 'modal-morph'].forEach(function (id) {
+        ['modal-franklin', 'modal-morph', 'modal-srt'].forEach(function (id) {
           var el = document.getElementById(id);
           if (el && el.classList.contains('open')) closeModal(id);
         });
@@ -2400,6 +3686,106 @@
       if (ftDl)      ftDl.addEventListener('click',      function () { downloadFile('franklin-templeton-presentation.pdf'); });
       if (morphView) morphView.addEventListener('click', function () { viewFile('morph-squadbase-presentation.pdf'); });
       if (morphDl)   morphDl.addEventListener('click',   function () { downloadFile('morph-squadbase-presentation.pdf'); });
+    })();
+
+    /* ── SHA Modal ── */
+    (function () {
+      var overlay = document.getElementById('modal-sha');
+      var closeBtn = document.getElementById('sha-close');
+      var openBtns = document.querySelectorAll('[data-modal="modal-sha"]');
+
+      if (!overlay) return;
+
+      function openSha() {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSha() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      openBtns.forEach(function (btn) {
+        btn.addEventListener('click', openSha);
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeSha);
+
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeSha();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) closeSha();
+      });
+    })();
+
+    /* ── SRT Flow Component ── */
+    (function () {
+      var DWELL  = 9000;
+      var PHASES = 4;
+
+      var stageEls = [0,1,2,3].map(function (i) { return document.getElementById('srtf-s' + i); });
+      var cardEls  = [0,1,2,3].map(function (i) { return document.getElementById('srtf-card-' + i); });
+      var dotEls   = [0,1,2,3].map(function (i) { return document.getElementById('srtf-dot-' + i); });
+      var fillEls  = [0,1,2].map(function (i)   { return document.getElementById('srtf-cf' + i); });
+
+      if (!stageEls[0]) return;
+
+      var cycleStart = performance.now();
+      var raf = null;
+
+      function applyProgress(p) {
+        p = Math.max(0, Math.min(p, PHASES - 0.0001));
+        var phase      = Math.floor(p);
+        var phaseFrac  = p - phase;
+        var activeStage = Math.min(phase, 3);
+
+        stageEls.forEach(function (s, i) {
+          s.classList.remove('active', 'done');
+          if (i < activeStage) s.classList.add('done');
+          if (i === activeStage) s.classList.add('active');
+        });
+
+        cardEls.forEach(function (c, i) {
+          var on = i === activeStage;
+          c.classList.toggle('active', on);
+          c.style.position      = on ? 'relative' : 'absolute';
+          c.style.pointerEvents = on ? 'all'       : 'none';
+        });
+
+        dotEls.forEach(function (d, i) { d.classList.toggle('active', i === activeStage); });
+
+        fillEls.forEach(function (f, i) {
+          var w;
+          if (phase === 3)      { w = 100; }
+          else if (i < phase)   { w = 100; }
+          else if (i === phase) { w = phaseFrac * 100; }
+          else                  { w = 0; }
+          f.style.width = w + '%';
+        });
+      }
+
+      function tick(now) {
+        var elapsed = now - cycleStart;
+        var t = elapsed % (PHASES * DWELL);
+        applyProgress(t / DWELL);
+        raf = requestAnimationFrame(tick);
+      }
+
+      function srtfGoTo(idx) {
+        cancelAnimationFrame(raf);
+        cycleStart = performance.now() - (idx * DWELL);
+        raf = requestAnimationFrame(tick);
+      }
+
+      stageEls.forEach(function (s, i) { s.addEventListener('click', function () { srtfGoTo(i); }); });
+      dotEls.forEach(function (d, i)   { d.addEventListener('click', function () { srtfGoTo(i); }); });
+
+      applyProgress(0);
+      cycleStart = performance.now();
+      raf = requestAnimationFrame(tick);
     })();
 
     /* ── Theme Toggle ── */
